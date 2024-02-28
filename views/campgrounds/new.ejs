@@ -1,0 +1,49 @@
+<% layout('/layouts/boilerplate') %>
+<div class="row">
+    <h1 class="text-center">New Campground</h1>
+    <div class="col-md-6 offset-md-3">
+        <form action="/campgrounds" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+            <!-- ? enctype untuk form berbentuk file-->
+            <div class="mb-3">
+                <label class="form-label" for="title">Title</label>
+                <input class="form-control" type="text" id="title" name="campground[title]" required />
+                <!-- ? jika form input sudah terisi maka ada pesan good-->
+                <!-- <div class="valid-feedback">Good!!</div> -->
+                <div class="invalid-feedback">Judul tidak boleh kosong.</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="location">Location</label>
+                <input class="form-control" type="text" id="location" name="campground[location]" required />
+                <div class="invalid-feedback">Lokasi tidak boleh kosong.</div>
+                <!-- ? name="campground[location]" ini cara baru yang mana data input akan di letakkan di dalam objek campground -->
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="price">Campground Price</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="price-label">Rp.</span>
+                    <input type="text" class="form-control" placeholder="0" aria-label="price" aria-describedby="price-label" id="price" name="campground[price]" required />
+                    <div class="invalid-feedback">Harga tidak boleh kosong.</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">Description</label>
+                <textarea class="form-control" type="text" id="description" name="campground[description]" required></textarea>
+                <div class="invalid-feedback">Deskripsi tidak boleh kosong.</div>
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Choose Image</label>
+                <input class="form-control" type="file" id="formFile" name="image" multiple />
+            </div>
+            <!--? multiple digunakan untuk upload image lebih dari satu-->
+            <!-- <div class="mb-.files);;
+                        <label class="form-label" for="image">Image URL</label>
+                        <input class="form-control" type="text" id="image" name="campground[image]" required />
+                        <div class="invalid-feedback">Gambar tidak boleh kosong.</div>
+                    </div> -->
+            <div class="mb-3">
+                <button class="btn btn-success">Add Campground</button>
+            </div>
+        </form>
+        <a href="/campgrounds">Cancel</a>
+    </div>
+</div>

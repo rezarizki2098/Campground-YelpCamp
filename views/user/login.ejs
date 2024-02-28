@@ -1,0 +1,45 @@
+<% layout('/layouts/boilerplate') %>
+
+<div class="container justify-content-center align-items-center">
+    <div class="card shadow">
+        <div class="row">
+            <div class="col-7">
+                <img src="https://res.cloudinary.com/dflfrprqg/image/upload/v1709008237/YelpCamp/from-li-fnp2Jlpldfw-unsplash_f9foj8.jpg" alt="" class="card-img-top" />
+            </div>
+            <div class="col-5">
+                <div class="card-body mt-5">
+                    <h2 class="card-title text-center mb-5">Login</h2>
+                    <form action="/login" method="POST" class="validated-form" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label" for="username">Username</label>
+                            <input class="form-control" type="text" id="username" name="username" autofocus required />
+                            <div class="invalid-feedback">Username tidak boleh kosong.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password</label>
+                            <input class="form-control" type="password" id="password" name="password" required />
+                            <div class="invalid-feedback">Password tidak boleh kosong.</div>
+                        </div>
+                        <button class="btn btn-success w-100">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 
+<form action="/login" method="POST" class="validated-form" novalidate>
+    <h1>Login</h1>
+    <div class="mb-3">
+        <label class="form-label" for="username">Username</label>
+        <input class="form-control" type="text" id="username" name="username" required />
+        <div class="invalid-feedback">Username tidak boleh kosong.</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-control" type="password" id="password" name="password" required />
+        <div class="invalid-feedback">Password tidak boleh kosong.</div>
+    </div>
+    <button class="btn btn-success">Login</button>
+</form> -->

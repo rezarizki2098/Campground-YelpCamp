@@ -1,0 +1,40 @@
+<% layout('/layouts/boilerplate') %>
+
+<div id="cluster-map" style="width: 100%; height: 500px"></div>
+
+<h1>All Campgrounds</h1>
+
+<% for (let campground of campgrounds){ %>
+<div class="card mb-3">
+    <div class="row">
+        <div class="col-md-4 m-2">
+            <% if (campground.image.length) {%>
+            <img src="<%= campground.image[0].url %>" class="card-img-top" alt="..." crossorigin="anonymous" />
+            <% } else { %>
+            <img src="https://res.cloudinary.com/dflfrprqg/image/upload/v1708754917/YelpCamp/noImage_w2cqye.jpg" class="card-img-top" alt="..." crossorigin="anonymous" />
+            <% } %>
+        </div>
+        <div class="col-md-7">
+            <div class="card-body">
+                <h5 class="card-title"><%= campground.title %></h5>
+                <p class="card-text"><%= campground.description %></p>
+                <p class="card-text">
+                    <small class="text-muted"><%= campground.location %></small>
+                </p>
+                <p class="card-text">
+                    <small class="text-muted">Price: Rp. <%= campground.price %></small>
+                </p>
+                <a class="btn btn-primary" href="/campgrounds/<%= campground._id %>"> View <%= campground.title %> </a>
+            </div>
+        </div>
+    </div>
+</div>
+<% } %>
+
+<script>
+    const mapToken = "<%- process.env.TOKEN_MAPBOX %>";
+    const campgrounds = {features: <%- JSON.stringify(campgrounds)%>};
+</script>
+<!-- ?hiraukan error ini, error ini terjadi karna ekstension -->
+
+<script src="/javascript/clusterMap.js"></script>
